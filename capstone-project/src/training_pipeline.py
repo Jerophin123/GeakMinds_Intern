@@ -92,6 +92,8 @@ def save_model(model, output_dir='model'):
     print(f"Model successfully saved to {model_path}")
 
 def main():
+    import markov_attribution
+    
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(script_dir)
     data_dir = os.path.join(project_root, 'data')
@@ -104,6 +106,9 @@ def main():
     
     model_dir = os.path.join(project_root, 'model')
     save_model(model, model_dir)
+    
+    print("\n--- Running Attribution Analysis ---")
+    markov_attribution.calculate_and_compare_attributions(df_raw, df_processed, model, data_dir)
     
     print("\nPipeline completed successfully!")
 

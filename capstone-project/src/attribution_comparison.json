@@ -1,0 +1,19 @@
+{
+    "markov_attribution": {
+        "Referral": 0.1733,
+        "Direct Traffic": 0.1672,
+        "Display Ads": 0.167,
+        "Email": 0.1652,
+        "Social Media": 0.1642,
+        "Search Ads": 0.1632
+    },
+    "shap_importance": {
+        "Referral": 0.3151,
+        "Social Media": 0.236,
+        "Search Ads": 0.2088,
+        "Email": 0.0981,
+        "Display Ads": 0.0869,
+        "Direct Traffic": 0.0552
+    },
+    "comparison_summary": "Comparison Summary:\n- Predictive Importance (SHAP): Focuses heavily on channels primarily acting as immediate conversion predictors across first/last touches.\n- Sequential Contribution (Markov): Highlights holistic channel value tracking overall interconnected pathways.\n\nBoth methodologies identify 'Referral' as the single most critical channel.\n"
+}
