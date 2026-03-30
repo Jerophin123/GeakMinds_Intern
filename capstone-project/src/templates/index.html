@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Real-Time Analytics & Allocation</title>
+    <!-- Premium Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- UI Icons Container -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="background-effect"></div>
+
+    <!-- Top Configuration Header -->
+    <header class="dashboard-header">
+        <h1 class="hero-title"><i class="fas fa-satellite-dish pulse-icon"></i> Multi-Channel Marketing Attribution Model</h1>
+        <div class="header-metrics">
+            <span class="live-status">
+                <div class="dot blinking"></div> Global Engines Online
+            </span>
+            <a href="/manual" class="btn-manual"><i class="fas fa-book"></i> User Manual</a>
+            <div class="metric-pill">
+                <i class="fas fa-microchip glow"></i>
+                <span>Model Base Accuracy: <strong id="accuracy-display">{{ accuracy }}%</strong></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="scrolling-wrapper">
+        <!-- ROW 1: Micro-Level Inference Dashboard -->
+        <h2 class="section-divider">Micro-Level: Real-Time User Conversion Simulator</h2>
+        <div class="dashboard-grid glassmorphism slide-fade-enter">
+            <!-- Left Sidebar: Controls -->
+            <aside class="sidebar border-right">
+                <h3 class="panel-subtitle"><i class="fas fa-sliders-h"></i> Simulation Controls</h3>
+                <form id="prediction-form" class="prediction-form">
+                    <div class="input-group">
+                        <label for="num_touchpoints">Touchpoints: <span id="val_touchpoints">3</span></label>
+                        <input type="range" id="num_touchpoints" name="num_touchpoints" min="1" max="15" value="3"
+                            step="1">
+                    </div>
+                    <div class="input-group">
+                        <label for="unique_channels">Unique Channels: <span id="val_channels">2</span></label>
+                        <input type="range" id="unique_channels" name="unique_channels" min="1" max="6" value="2"
+                            step="1">
+                    </div>
+                    <div class="input-group">
+                        <label for="time_to_conversion_hours">Hours to Conversion: <span id="val_time">24</span>
+                            hr</label>
+                        <input type="range" id="time_to_conversion_hours" name="time_to_conversion_hours" min="0"
+                            max="72" value="24" step="1">
+                    </div>
+                    <div class="separator"></div>
+                    <div class="input-group">
+                        <label for="first_channel">First Interaction</label>
+                        <select id="first_channel" name="first_channel">
+                            <option value="Direct Traffic">Direct Traffic</option>
+                            <option value="Display Ads">Display Ads</option>
+                            <option value="Email">Email</option>
+                            <option value="Referral">Referral</option>
+                            <option value="Search Ads" selected>Search Ads</option>
+                            <option value="Social Media">Social Media</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="last_channel">Last Interaction</label>
+                        <select id="last_channel" name="last_channel">
+                            <option value="Direct Traffic">Direct Traffic</option>
+                            <option value="Display Ads">Display Ads</option>
+                            <option value="Email">Email</option>
+                            <option value="Referral">Referral</option>
+                            <option value="Search Ads">Search Ads</option>
+                            <option value="Social Media" selected>Social Media</option>
+                        </select>
+                    </div>
+                </form>
+            </aside>
+
+            <!-- Center Main: Live Feed / Gauge -->
+            <main class="center-panel">
+                <div class="inference-display">
+                    <div class="result-circle" id="result-circle">
+                        <div class="prediction-value">
+                            <span id="probability-value">--%</span>
+                            <span class="prob-label">Conversion Probability</span>
+                        </div>
+                    </div>
+                    <div class="classification-box">
+                        <h4>Inference Status</h4>
+                        <div class="status-badge" id="prediction-label-badge">Awaiting Output...</div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Right Sidebar: Feature Analytics -->
+            <aside class="right-panel border-left">
+                <h3 class="panel-subtitle"><i class="fas fa-network-wired"></i> Model Decision Weights</h3>
+                <div class="chart-wrapper">
+                    <canvas id="featureChart"></canvas>
+                </div>
+                <div class="insight-pill">Globally evaluates which structural pathways influence the model.</div>
+            </aside>
+        </div>
+
+        <!-- ROW 2: Macro-Level Budget Optimization -->
+        <h2 class="section-divider" style="margin-top: 2rem;">Macro-Level: Strategic Budget Allocation (Markov Chain)
+        </h2>
+        <div class="budget-panel glassmorphism slide-fade-enter delay-1">
+
+            <div class="budget-header">
+                <div class="budget-controls">
+                    <label for="budget_input"><i class="fas fa-coins"></i> Total Marketing Budget ($)</label>
+                    <div class="currency-input">
+                        <span class="currency-symbol">$</span>
+                        <input type="number" id="budget_input" value="100000" step="5000" min="0">
+                    </div>
+                </div>
+                <div class="budget-insight-box">
+                    <h4><i class="fas fa-lightbulb text-glow"></i> Executive Insight</h4>
+                    <p id="budget_insight_text">Calculating sequence probabilities...</p>
+                </div>
+            </div>
+
+            <div class="allocation-grid" id="allocation_cards">
+                <!-- Dynamically injected allocation cards will appear here -->
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Application Script -->
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Manual & Strategic Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        /* Manual specific dummy component styling */
+        .dummy-component {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .dummy-slider {
+            width: 100%;
+            max-width: 300px;
+        }
+        .dummy-badge-green {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-success);
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+        .dummy-badge-red {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--accent-danger);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-effect"></div>
+    
+    <header class="dashboard-header">
+        <h1 class="hero-title">
+            <i class="fas fa-book pulse-icon"></i> User Manual
+        </h1>
+        <div class="header-metrics">
+            <a href="/" class="btn-manual"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+        </div>
+    </header>
+
+    <div class="scrolling-wrapper">
+        <div class="manual-container glassmorphism slide-fade-enter">
+            
+            <section class="manual-section">
+                <div class="section-badge">Welcome</div>
+                <h2>Understanding the Multi-Channel Marketing Attribution Model</h2>
+                <p class="lead">
+                    Welcome to the <strong>Multi-Channel Marketing Attribution Model</strong> dashboard. This application is a dual-tiered, real-time Machine Learning platform designed to solve one of the most complex problems in modern business: <em>Marketing Attribution & Conversion Prediction</em>.
+                </p>
+            </section>
+
+            <hr class="separator">
+
+            <section class="manual-section delay-1">
+                <div class="section-badge">Glossary</div>
+                <h2>What is a Conversion?</h2>
+                <p>
+                    Throughout this application, you will frequently see the terms <strong>"Converted"</strong> and <strong>"Not Converted"</strong>. These are the absolute core binary outcomes of our Machine Learning models.
+                </p>
+                
+                <div class="dummy-component">
+                    <span class="dummy-badge-green"><i class="fas fa-check-circle"></i> Converted</span>
+                    <span class="dummy-badge-red"><i class="fas fa-times-circle"></i> Not Converted</span>
+                </div>
+
+                <ul>
+                    <li><strong>Converted (Green):</strong> The user journey successfully resulted in the desired business objective. Depending on your industry, this could mean they <em>purchased a product</em>, <em>signed a lease</em>, or <em>booked a B2B demo</em>.</li>
+                    <li><strong>Not Converted (Red):</strong> The user journey failed or stalled. The user dropped out of the marketing pipeline before completing a transaction or signing up.</li>
+                </ul>
+
+                <h3 style="margin-top: 1.5rem; border-bottom: none; font-size: 1.15rem;">How is the "Converted" Status Determined?</h3>
+                <p>
+                    Behind the scenes, the dashboard is running a highly advanced algorithm known as an <strong>XGBoost (Extreme Gradient Boosting) Classifier</strong>. Here is exactly how it decides the final outcome:
+                </p>
+                <ol style="margin-left: 2rem; margin-bottom: 1.5rem;">
+                    <li style="margin-bottom: 0.75rem;"><strong>Historical Training:</strong> First, the algorithm ingested thousands of past historic customer journeys. It memorized strict statistical patterns (e.g., "Users who see 8 touchpoints and start with Search Ads typically convert 92% of the time, while users who see 2 touchpoints and start with Display Ads convert only 5% of the time.").</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Mathematical Scoring:</strong> When you drag sliders on the dashboard, the Engine processes your specific multi-channel sequence and assigns a mathematical <em>Probability Float</em> from 0% to 100% based strictly on those learned historical weights.</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>The Decision Threshold:</strong> Our engine uses a standard <strong>50% (0.50) Confidence Threshold</strong>. If the engine calculates that your simulated journey has a probability score of 50.1% or higher, the system officially classifies that user as <strong><span style="color:var(--accent-success);">"Converted"</span></strong>. If it falls to 49.9% or below, the system decides not to trigger the business objective and the user is classified as <strong><span style="color:var(--accent-danger);">"Not Converted"</span></strong>.</li>
+                </ol>
+            </section>
+
+            <hr class="separator">
+
+            <section class="manual-section delay-2">
+                <div class="section-badge">Component Breakdown</div>
+                <h2>The Dashboard: Element by Element</h2>
+                
+                <h3>1. Simulation Controls (The Sliders)</h3>
+                <p>
+                    Located on the left side of the dashboard. Instead of static forms, we use interactive sliders. Every time you drag a slider, it instantly triggers the ML model in the background. Note: There is no "Submit" button because the entire app runs completely live.
+                </p>
+                <div class="dummy-component">
+                    <div class="dummy-slider">
+                        <label style="color:#f8fafc; font-size:0.85rem;">Touchpoints: <span style="color:#3b82f6; font-weight:bold;">8</span></label>
+                        <input type="range" min="1" max="15" value="8" style="width:100%;">
+                    </div>
+                </div>
+
+                <h3>2. The Live Inference Gauge (The Circle & Ring)</h3>
+                <p>
+                    Located in the dead center of the dashboard. This is the heart of the engine.
+                </p>
+                <ul>
+                    <li><strong>The Outer Spinning Ring:</strong> Represents the continuous, real-time calculation process of the XGBoost algorithm actively monitoring your slider inputs.</li>
+                    <li><strong>The Percentage Number:</strong> The exact mathematical probability (from 0% to 100%) that the specific user journey you crafted will result in a Conversion.</li>
+                    <li><strong>The Inner Circle Color:</strong> The gauge will glow intense <strong>Green</strong> if the probability crosses the critical threshold (>50%), stamping the user as "Converted". It will glow <strong>Red</strong> if the probability is low.</li>
+                </ul>
+                <div class="dummy-component">
+                    <div class="result-circle" style="transform: scale(0.6); margin: -40px 0;">
+                        <div class="prediction-value">
+                            <span id="probability-value" style="font-size:3rem; color:#10b981;">82.4%</span>
+                            <span class="prob-label">Probability</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>3. Feature Importance (The Chart)</h3>
+                <p>
+                    Located on the right side of the dashboard. Black-box Machine Learning models can be confusing. This chart creates transparency by showing you exactly <em>why</em> the model acts the way it does. The longer the bar next to a feature, the more overall influence that specific metric has on forcing a "Converted" status.
+                </p>
+
+                <h3>4. Strategic Budget Allocator</h3>
+                <p>
+                    Located at the very bottom. While the tools above predict individual user outcomes (Micro-Level), this tool solves the Macro-Level business issue: "Where do we spend our money?" 
+                </p>
+                <div class="dummy-component" style="flex-direction:column; align-items:flex-start;">
+                    <label style="color:#3b82f6; font-weight:bold;"><i class="fas fa-coins"></i> Total Marketing Budget ($)</label>
+                    <div style="background: rgba(0,0,0,0.5); padding: 0.5rem 1rem; border-radius:8px; border:1px solid rgba(255,255,255,0.1); width:200px; font-size:1.5rem; font-weight:bold;">$ 500,000</div>
+                </div>
+                <p>
+                    By typing a monetary budget into this box, the algorithm reads the <strong>Markov Chain</strong> model we processed behind the scenes. It takes your $500,000 and calculates exactly how many dollars should go to Email Marketing, Social Media, and Search Ads proportionally based strictly on their actual mathematical ability to drive revenue.
+                </p>
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
