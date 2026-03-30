@@ -61,6 +61,14 @@ capstone-project/
 │   ├── raw_data.csv           # Raw ingestion data
 │   └── processed_data.csv     # Transformed feature set used for ML
 │   
+├── notebooks/                 # Jupyter notebooks for EDA and experimentation
+│   ├── eda.ipynb              # Exploratory Data Analysis & Viz
+│   ├── feature_engineering.ipynb # Feature creation and preprocessing
+│   └── modeling.ipynb         # Model research and hyperparameter tuning
+│
+├── presentation/              # Project presentation slides and materials
+│   └── capstone_presentation.pptx # Final stakeholders presentation
+│
 ├── src/                       # Production-grade source code
 │   ├── app.py                 # FastAPI backend & web server
 │   ├── markov_attribution.py  # Markov logic & SHAP explainers
